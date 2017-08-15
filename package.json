@@ -1,0 +1,19 @@
+{
+  "name": "gpacalculator",
+  "version": "0.0.1",
+  "main": "main.js",
+  "author": {
+    "name": "Untitled"
+  },
+  "build": {
+    "appId": "ml.0x00000000.gpa"
+  },
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "electron": "^1.7.5"
+  }
+}

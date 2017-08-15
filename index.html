@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>GPA Calculator (for XMU)</title>
+
+  <link rel="stylesheet" href="material.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="unselectable.css">
+  <link rel="stylesheet" href="hideScrollbar.css">
+
+  <script src="index.js"></script>
+</head>
+
+<body class="full-height unselectable">
+  <div class="center" id="index">
+    <div>
+      <h1>What's my GPA?</h1>
+    </div>
+    <div class="login-field">
+      <div>
+        用户名<input id="username" type="text">
+      </div>
+      <div>
+        密　码<input id="password" type="password">
+      </div>
+      <div id="loginMsg" style="max-width: 223px;">
+        <!--Some message-->
+      </div>
+      <button class="blue" onclick="lib.prepareRawData(); toggleLoad();">计算！</button>
+    </div>
+  </div>
+  <div style="display: none;" class="loader center fade-out" id="loader">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+  </div>
+  <div style="display: none;" class="result" id="result">
+    <div class="table-area">
+      <table class="mytable">
+        <h3 style="margin-top: 0px;">总绩点：<span id="gpa-total">123</span></h3>
+        <thead>
+          <tr>
+            <th style="width: 152px;">课程名称</th>
+            <th>学分/学时</th>
+            <th style="width: 133px;">课程类别</th>
+            <th>修读性质</th>
+            <th>成绩</th>
+            <th>特殊原因</th>
+            <th>维度(站位)</th>
+            <th>绩点</th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th colspan="8" id="term-name">2016-2017学年 第二学期</th>
+          </tr>
+        </thead>
+        <tbody id="subjects">
+          <tr>
+            <td>军事理论</td>
+            <td>2.0</td>
+            <td>公共基本</td>
+            <td>必修</td>
+            <td>321</td>
+            <td></td>
+            <td>0%</td>
+            <td>123</td>
+          </tr>
+          <tr>
+            <td>军事理论</td>
+            <td>2.0</td>
+            <td>公共基本</td>
+            <td>必修</td>
+            <td>321</td>
+            <td></td>
+            <td>0%</td>
+            <td>123</td>
+          </tr>
+          <tr>
+            <td>军事理论</td>
+            <td>2.0</td>
+            <td>公共基本</td>
+            <td>必修</td>
+            <td>321</td>
+            <td></td>
+            <td>0%</td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>学期绩点</td>
+            <td colspan="7" id="gpa-term">123</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="bottom-button">
+      <div>
+        <button class="blue" onclick="pre();">上学期</button>
+      </div>
+      <div>
+        <button class="blue" onclick="next();">下学期</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
