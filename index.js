@@ -7,15 +7,15 @@ let lib = new Lib(allWindows[0], allWindows[1]);
 
 function toggleLoad() {
   let loader = document.getElementById('loader');
-  if (lib.hasClass(loader, 'fade-in')) {
-    lib.removeClass(loader, 'fade-in');
+  if (Lib.hasClass(loader, 'fade-in')) {
+    Lib.removeClass(loader, 'fade-in');
     setTimeout(() => {
-      if(!lib.hasClass(loader, 'fade-in')) loader.style.display = 'none';
+      if(!Lib.hasClass(loader, 'fade-in')) loader.style.display = 'none';
     }, 300);
   } else {
     loader.style.display = '';
     setTimeout(() => {
-      lib.addClass(loader, 'fade-in');
+      Lib.addClass(loader, 'fade-in');
     }, 50);
   }
 }
@@ -28,9 +28,9 @@ function init() {
   result = document.getElementById('result');
   lib.onTimeout = function() {
     document.getElementById('loginMsg').innerText = '操作超时！与服务器的通信可能出现问题，请尝试重启应用';
-    lib.hide(result);
-    lib.show(index);
-    if(lib.hasClass(document.getElementById('loader'), 'fade-in')) toggleLoad();
+    Lib.hide(result);
+    Lib.show(index);
+    if(Lib.hasClass(document.getElementById('loader'), 'fade-in')) toggleLoad();
   };
 }
 
@@ -57,7 +57,7 @@ let currentTermIndex = 0;
 let termNum = 0;
 
 function showResult() {
-  lib.hide(index);
+  Lib.hide(index);
   lib.getGPA();
 
   let totalGPA = document.getElementById('gpa-total');
@@ -66,7 +66,7 @@ function showResult() {
   showTermResult(lib.res[currentTermIndex = 0]);
   termNum = lib.res.length - 1;
 
-  lib.show(result);
+  Lib.show(result);
   toggleLoad();
 }
 
@@ -79,7 +79,7 @@ function next() {
 }
 
 function showTermResult(term) {
-  lib.hide(index);
+  Lib.hide(index);
 
   let termName = document.getElementById('term-name');
   let subjectList = document.getElementById('subjects');
@@ -97,12 +97,11 @@ function showTermResult(term) {
 }
 
 function onError(message) {
-  lib.state = 'error';
-  clearInterval(lib.timeoutInt);
-  lib.timeoutInt = 0;
-  lib.currentStage = -1;
+  lib.injector.state = 'error'; // Stop the injector
+  if(lib.timer) lib.timer.stop(); // Stop timer
   document.getElementById('loginMsg').innerText = message || '页面错误！与服务器的通信可能出现问题，请尝试重启应用';
-  lib.hide(result);
+  lib.onError();
+  Lib.hide(result);
   lib.show(index);
-  if(lib.hasClass(document.getElementById('loader'), 'fade-in')) toggleLoad();
+  if(Lib.hasClass(document.getElementById('loader'), 'fade-in')) toggleLoad();
 }

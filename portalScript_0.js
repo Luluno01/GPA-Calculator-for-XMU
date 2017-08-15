@@ -3,10 +3,10 @@ function doTask() {
   let indexWindow = remote.BrowserWindow.getAllWindows()[0];
 
   indexWindow.webContents.executeJavaScript('console.log("In portalScript_0.js")');
-  indexWindow.webContents.executeJavaScript('lib.startTime = ' + (new Date()).getTime());
+  indexWindow.webContents.executeJavaScript('if(lib.timer) lib.timer.refresh();');
 
-  document.getElementById('username').value = 'USER_NAME';
-  document.getElementById('password').value = 'PASSWORD';
+  document.getElementById('username').value = USERNAME;
+  document.getElementById('password').value = PASSWORD;
 
   document.getElementsByTagName('input')[4].checked = true;
   document.getElementsByTagName('input')[5].click();
@@ -27,6 +27,8 @@ function doTask() {
       return;
     }
   }, 100);
+  USERNAME = null;
+  PASSWORD = null;
 }
 
 if(document.readyState) {

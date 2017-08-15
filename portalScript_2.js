@@ -4,7 +4,7 @@ function doTask() {
   let indexWindow = remote.BrowserWindow.getAllWindows()[0];
 
   indexWindow.webContents.executeJavaScript('console.log("In portalScript_2.js")');
-  indexWindow.webContents.executeJavaScript('lib.startTime = ' + (new Date()).getTime());
+  indexWindow.webContents.executeJavaScript('if(lib.timer) lib.timer.refresh();');
 
   let table;
   let data;
