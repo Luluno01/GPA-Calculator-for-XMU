@@ -2,7 +2,7 @@ const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
 
-const DEBUG = true;
+const DEBUG = false;
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
@@ -45,6 +45,7 @@ function createWindow () {
 
   win.once('ready-to-show', () => {
     win.show();
+    if(DEBUG) portalPage.show();
   })
 
   createPortalPage();
@@ -54,9 +55,9 @@ function createPortalPage() {
   portalPage = new BrowserWindow({
     width: 1024,
     height: 768,
-    frame: true,
+    frame: DEBUG,
     toolbar: false,
-    show: !DEBUG,
+    show: DEBUG,
     parent: win
   });
 

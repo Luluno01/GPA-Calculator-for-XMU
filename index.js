@@ -103,6 +103,6 @@ function onError(message) {
   document.getElementById('loginMsg').innerText = message || '页面错误！与服务器的通信可能出现问题，请尝试重启应用';
   lib.onError();
   Lib.hide(result);
-  lib.show(index);
+  Lib.show(index);
   if(Lib.hasClass(document.getElementById('loader'), 'fade-in')) toggleLoad();
 }

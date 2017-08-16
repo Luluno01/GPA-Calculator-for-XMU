@@ -62,6 +62,7 @@ function doTask() {
 
     indexWindow.webContents.executeJavaScript('console.log(' + JSON.stringify(data) + ');');
     indexWindow.webContents.executeJavaScript('lib.setRawData(\'' + JSON.stringify(data) + '\'); showResult(); lib.onSuccess();');
+    document.location = 'logout.portal'; // Logout
   })();
 
   // if(document.readyState) {

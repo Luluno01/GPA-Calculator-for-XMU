@@ -125,3 +125,11 @@ th:hover {
   overflow: scroll;
   margin-bottom: 70px;
 }
+
+.more-ops {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
