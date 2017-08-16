@@ -58,7 +58,6 @@ let termNum = 0;
 
 function showResult() {
   Lib.hide(index);
-  lib.getGPA();
 
   let totalGPA = document.getElementById('gpa-total');
   let gpa = lib.res[lib.res.length - 1];
@@ -94,6 +93,8 @@ function showTermResult(term) {
   termGPA.innerText = term.GPA;
 
   document.getElementById('subjects').innerHTML = subjectListStr;
+
+  Lib.show(result);
 }
 
 function onError(message) {
