@@ -1,6 +1,8 @@
 # GPA-Calculator-for-XMU
 GPA Calculator for Xiamen University
 
+Powered by Electron
+
 # 目录
 1. [使用方法](#使用方法)
 2. [计算方法](#计算方法)
